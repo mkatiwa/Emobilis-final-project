@@ -1,0 +1,54 @@
+{%  extends "layout.html" %}
+
+{%  load static %}
+
+{% block body %}
+
+
+    {% comment %} slider starts here {% endcomment %}
+
+    {% for slide in slides %}
+
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class=""><img src="/media/{{slide.image}}" class="img-fluid" alt=""></div>
+            <div class="carousel-caption d-none d-md-block">
+            <h5>{{slide.title}}</h5>
+            <p>{{slide.description}}</p>
+            </div>
+        </div>
+        </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+    {% comment %} slider ends here {% endcomment %}
+
+<main class="main">
+    <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>When my colleague collapsed and started seizing during a meeting,<br>
+                        we had no idea what to do! Luckily, I had heard about ERA so I quickly called. <br>
+                        They came in just a few minutes, revived her and immediately took her to hospital.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{% static 'assets/images/image_1.png' %}" alt="">
+                </div>
+            </div>
+    </div>
+
+</main>
+
+{% endblock %}

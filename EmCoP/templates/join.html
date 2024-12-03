@@ -1,0 +1,89 @@
+{%  extends "layout.html" %}
+
+{%  load static %}
+
+{% block body %}
+
+<section id="Join us" class="Join us">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Join US</h2>
+        <p>Thank you for your interest in Emergency Response Africa. Through our Emergency-Ready Hospital Program, <br>
+            ERA partners with selected medical institutions like hospitals and private ambulance service <br>
+            providers to assure patients of quality care with no delays. Emergency-Ready Partners are vetted <br>
+            against strict criteria to assess their level of emergency preparedness and, if successful, <br>
+            are awarded a badge giving patients confidence in the quality of care they will receive.
+        </p>
+        </div>
+
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Partner Application Form</h2>
+            <p>Thank you for your interest in Emergency Response Africa. <br>
+            Complete the form below to begin the process of becoming an Emergency-Ready Partner.</p>
+            </div>
+
+            <div class="container mt-5">
+                <form action="text" method="post">
+
+                    {% csrf_token %}
+
+                    <div class="row">
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                        </div>
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name"><br>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Email Adress" aria-label="Email Adress">
+                        </div>
+                        <div class="col">
+                        <input type="number" class="form-control" placeholder="Phone number" aria-label="phone number"><br>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Name of Organization" aria-label="Name of Organization">
+                        </div>
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Organization Type" aria-label="Organization Type"><br>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Country" aria-label="Country">
+                        </div>
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Enter State/City" aria-label="Enter State/City"><br>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Name of Organization" aria-label="Name of Organization">
+                        </div>
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Organization Type" aria-label="Organization Type"><br>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Partnership Type" aria-label="Partnership Type">
+                        </div>
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="How did you hear About us" aria-label="How did you hear About us"> <br>
+                        </div>
+                    </div>
+
+                    <input class="btn btn-danger" type="submit" value="Submit">
+                </form>
+            </div>
+</section>
+
+{% endblock %}

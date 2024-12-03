@@ -1,0 +1,67 @@
+{%  extends "layout.html" %}
+
+{%  load static %}
+
+{% block body %}
+
+
+<main class="main">
+    <section id="Contact Us">
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <h1>Contact Us</h1>
+                    <h4>We want to hear from you</h4>
+                    <p>If this is an emergency, call 0 8000 2255 372 immediately or submit a request via <br>
+                        our Signal by EmCoP Application.</p>
+
+                <div class="col-4">
+                    <img src="" alt="">
+                </div>
+            </div>
+
+        <div class="container">
+            <h2>Leave a Message</h2>
+            <p>Contact us if you have any questions about our company or products.
+                We will respond within 24-48 hours.</p> <br><br>
+
+                <form action="text" method="post">
+
+                    {% csrf_token %}
+
+                    <div class="row">
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                        </div>
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name"> <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="phone number" aria-label="Phone number">
+                        </div>
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Email" aria-label="Email address"> <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Address" aria-label="Address"><br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                        <textarea class="form-control" rows="3" placeholder="How can we help you"></textarea>
+                        </div>
+                    </div>
+
+                    <input class="btn btn-danger" type="submit" value="Submit">
+                </form>
+        </div>
+    </section>
+
+
+</main>
+
+{% endblock %}
