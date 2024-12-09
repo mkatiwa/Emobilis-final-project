@@ -1,67 +1,61 @@
-{%  extends "layout.html" %}
+{% extends 'layout.html' %}
+{% load static %}
 
-{%  load static %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2>Contact Us</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        {% for field in form %}
+                            {% if field.name != 'latitude' and field.name != 'longitude' %}
+                                <div class="mb-3">
+                                    {{ field.label_tag }}
+                                    {{ field }}
+                                    {% if field.errors %}
+                                        <div class="text-danger">
+                                            {{ field.errors }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
 
-{% block body %}
+                        <!-- Hidden location fields -->
+                        {{ form.latitude }}
+                        {{ form.longitude }}
 
-
-<main class="main">
-    <section id="Contact Us">
-        <div class="container">
-            <div class="row">
-                <div class="col-8">
-                    <h1>Contact Us</h1>
-                    <h4>We want to hear from you</h4>
-                    <p>If this is an emergency, call 0 8000 2255 372 immediately or submit a request via <br>
-                        our Signal by EmCoP Application.</p>
-
-                <div class="col-4">
-                    <img src="" alt="">
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="bi bi-send"></i> Send Message
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
-
-        <div class="container">
-            <h2>Leave a Message</h2>
-            <p>Contact us if you have any questions about our company or products.
-                We will respond within 24-48 hours.</p> <br><br>
-
-                <form action="text" method="post">
-
-                    {% csrf_token %}
-
-                    <div class="row">
-                        <div class="col">
-                        <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-                        </div>
-                        <div class="col">
-                        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name"> <br>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                        <input type="text" class="form-control" placeholder="phone number" aria-label="Phone number">
-                        </div>
-                        <div class="col">
-                        <input type="text" class="form-control" placeholder="Email" aria-label="Email address"> <br>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                        <input type="text" class="form-control" placeholder="Address" aria-label="Address"><br>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                        <textarea class="form-control" rows="3" placeholder="How can we help you"></textarea>
-                        </div>
-                    </div>
-
-                    <input class="btn btn-danger" type="submit" value="Submit">
-                </form>
         </div>
-    </section>
+    </div>
+</div>
+{% endblock %}
 
-
-</main>
-
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Geolocation
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            document.getElementById('id_latitude').value = position.coords.latitude;
+            document.getElementById('id_longitude').value = position.coords.longitude;
+        }, function(error) {
+            console.warn(`Geolocation error: ${error.message}`);
+        });
+    }
+});
+</script>
 {% endblock %}

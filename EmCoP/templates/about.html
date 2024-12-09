@@ -1,135 +1,191 @@
-{%  extends "layout.html" %}
-
-{%  load static %}
-
+{% extends "layout.html" %}
+{% load static %} 
 {% block body %}
+<main class="main bg-light">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h1 class="display-4 text-primary">About EmCoP</h1>
+      </div>
+    </div>
 
-<main class="main">
+    <div class="row mb-5">
+      <div class="col-lg-12">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h2 class="card-title text-center mb-4">
+              Powering Emergency Response across Rift Valley
+            </h2>
+            <p class="card-text lead text-muted">
+              The Emergency Response website is designed to enhance and improve
+              emergency services, focusing on healthcare-related emergencies.
+              The system aims to provide quick access to emergency services and
+              enable users to share their location, improving the overall
+              response time and potentially saving lives. The system will give
+              users a registration space to sign up and create a profile, giving
+              them an easy time during an emergency to report the case. The
+              purpose is to provide quick rescue to the emergency victims or
+              else improve emergency services. This has been a great challenge
+              in Kenya, where victims lose their lives due to unattended or late
+              attendance. This system will solve the problem by providing quick
+              two-way communication or alerts between the emergency victim and
+              the respondents.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
-        <h1>About EmCoP</h1> <br> <br>
+      <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+          <img
+            src="{% static 'assets/images/about-2.png' %}"
+            class="img-fluid rounded shadow"
+            alt="Emergency Response"
+          />
+        </div>
 
-        <h2>Powering Emergency Response across Kitui</h2>
-        <p>The Emergency Response website is designed to enhance and improve emergency services, <br>
-            focusing on healthcare-related emergencies. The system aims to provide quick access to emergency <br>
-            services and enable users to share their location, improving the overall response time and potentially <br>
-            saving lives. The system will give users a registration space to sign up and create a profile, <br>
-            giving them an easy time during an emergency to report the case. The purpose is to provide <br>
-            quick rescue to the emergency victims or else improve emergency services. This has been a great <br>
-            challenge in Kenya, where victims lose their lives due to unattended or late attendance.  <br>
-            This system will solve the problem by providing quick two-way communication or alerts between the <br>
-            emergency victim and the respondents.</p>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="{% static 'assets/images/' %}" alt="About EmCoP" class="img-fluid">
-                </div>
-
-                <div class="col-md-6">
-                    <p>
-                        We all deserve to live in a world where help is available <br>
-                        whenever and wherever you need it. <br>
-                        EmCoP is making this a reality.
-                    </p>
-                </div>
-            </div>
+        <div class="col-md-6">
+          <div class="bg-dark text-white p-4 rounded">
+            <p class="h4">
+              We all deserve to live in a world where help is available <br />
+              whenever and wherever you need it. <br />
+              EmCoP is making this a reality.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-6">
-                <h3>Our Vision</h3>
-                <p>An safe area where everyone can receive <br>
-                    emergency medical care <br>
-                    in 10 minutes or less.
-                </p>
-            </div>
-
-            <div class="col-md-6">
-                <h3>Our Mission</h3>
-                <p>Fast, reliable emergency <br>
-                care across Machakos.</p>
-
-            </div>
+    <div class="container mb-5">
+      <div class="row bg-info text-white p-4 rounded">
+        <div class="col-md-6">
+          <h2>Our Vision</h2>
+          <p class="h4">
+            A safe area where everyone can receive <br />
+            emergency medical care <br />
+            in 10 minutes or less.
+          </p>
         </div>
+
+        <div class="col-md-6">
+          <h2>Our Mission</h2>
+          <p class="h4">
+            Fast, reliable emergency <br />
+            care across Machakos.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <!-- Section Title -->
-
     <section id="team" class="team section">
+      <div class="container text-center mb-5">
+        <h2 class="display-5 text-primary mb-4">The Management Team</h2>
+        <p class="lead text-muted mb-5">
+          Emergency Connect Plus is a company of diverse thinkers and doers
+          <br />
+          who take pride in always improving our product. We share a vision and
+          <br />
+          commitment to help each other — and our customers — create great work.
+          <br />
+          Meet the team that's transforming Emergency Response in Africa
+        </p>
+      </div>
 
-        <div class="container section-title mt-5" data-aos="fade-up">
-        <h2>The Management Team</h2>
-        <p>Emergency Connect Plus  is a company of diverse thinkers and doers <br>
-            who take pride in always improving our product. We share a vision and <br>
-            commitment to help each other — and our customers — create great work. <br>
-            Meet the team that’s transforming Emergency Response in Africa</p>
-        </div>
-
-        <div class="container">
+      <div class="container">
         <div class="row gy-4">
-
-            {% for team in teams %}
-
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member d-flex align-items-start">
-            <div class=""><img src="/media/{{team.image}}" class="img-fluid" alt=""></div>
-            <div class="member-info">
-                <h4>{{team.name}}</h4>
-                <span>{{team.position}}</span>
-                <div class="social">
-                <a href="{{team.twitter_url}}"><i class="bi bi-twitter-x"></i></a>
-                <a href="{{team.twitter_url}}"><i class="bi bi-facebook"></i></a>
-                <a href="{{team.twitter_url}}"><i class="bi bi-instagram"></i></a>
-                <a href="{{team.twitter_url}}"> <i class="bi bi-linkedin"></i> </a>
+          {% for team in teams %}
+          <div class="col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm">
+              <img
+                src="{{team.image.url}}"
+                class="card-img-top"
+                alt="{{team.name}}"
+              />
+              <div class="card-body text-center">
+                <h4 class="card-title">{{team.name}}</h4>
+                <p class="card-text text-muted">{{team.position}}</p>
+                <div class="social-links">
+                  <a
+                    href="{{team.twitter_url}}"
+                    class="btn btn-outline-primary btn-sm m-1"
+                    ><i class="bi bi-twitter-x"></i
+                  ></a>
+                  <a
+                    href="{{team.twitter_url}}"
+                    class="btn btn-outline-primary btn-sm m-1"
+                    ><i class="bi bi-facebook"></i
+                  ></a>
+                  <a
+                    href="{{team.twitter_url}}"
+                    class="btn btn-outline-primary btn-sm m-1"
+                    ><i class="bi bi-instagram"></i
+                  ></a>
+                  <a
+                    href="{{team.twitter_url}}"
+                    class="btn btn-outline-primary btn-sm m-1"
+                    ><i class="bi bi-linkedin"></i
+                  ></a>
                 </div>
+              </div>
             </div>
-            </div>
+          </div>
+          {% endfor %}
         </div>
-            {% endfor %}
-        </div>
-
-        </div>
+      </div>
     </section>
 
-    <!-- start officials section -->
+    <section id="advisory-board" class="advisory-board section">
+      <div class="container text-center mb-5">
+        <h2 class="display-5 text-primary mb-4">Our Clinical Advisory Board</h2>
+        <p class="lead text-muted">
+          Bringing global best practices in pre-hospital care in the East.
+        </p>
+      </div>
 
-
-    <section id="team" class="team section">
-
-        <div class="container section-title mt-5" data-aos="fade-up">
-        <h2>Our Clinical Advisory Board</h2>
-        <p>Bringing global best practices in pre-hospital care in the East.</p>
-        </div>
-
-        <div class="container">
+      <div class="container">
         <div class="row gy-4">
-
-            {% for board in boards %}
-
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member d-flex align-items-start">
-            <div class=""><img src="/media/{{board.image}}" class="img-fluid" alt=""></div>
-            <div class="member-info">
-                <h4>{{board.name}}</h4>
-                <span>{{board.description}}</span>
-                <div class="social">
-                <a href="{{board.twitter_url}}"><i class="bi bi-twitter-x"></i></a>
-                <a href="{{board.twitter_url}}"><i class="bi bi-facebook"></i></a>
-                <a href="{{board.twitter_url}}"><i class="bi bi-instagram"></i></a>
-                <a href="{{board.twitter_url}}"> <i class="bi bi-linkedin"></i> </a>
+          {% for board in boards %}
+          <div class="col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm">
+              <img
+                src="/media/{{board.image}}"
+                class="card-img-top"
+                alt="{{board.name}}"
+              />
+              <div class="card-body text-center">
+                <h4 class="card-title">{{board.name}}</h4>
+                <p class="card-text text-muted">{{board.description}}</p>
+                <div class="social-links">
+                  <a
+                    href="{{board.twitter_url}}"
+                    class="btn btn-outline-primary btn-sm m-1"
+                    ><i class="bi bi-twitter-x"></i
+                  ></a>
+                  <a
+                    href="{{board.twitter_url}}"
+                    class="btn btn-outline-primary btn-sm m-1"
+                    ><i class="bi bi-facebook"></i
+                  ></a>
+                  <a
+                    href="{{board.twitter_url}}"
+                    class="btn btn-outline-primary btn-sm m-1"
+                    ><i class="bi bi-instagram"></i
+                  ></a>
+                  <a
+                    href="{{board.twitter_url}}"
+                    class="btn btn-outline-primary btn-sm m-1"
+                    ><i class="bi bi-linkedin"></i
+                  ></a>
                 </div>
+              </div>
             </div>
-            </div>
+          </div>
+          {% endfor %}
         </div>
-            {% endfor %}
-        </div>
-
-        </div>
+      </div>
     </section>
-
-        <!-- end Team Section -->
-
-
+  </div>
 </main>
-
 {% endblock %}

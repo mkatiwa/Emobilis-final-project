@@ -1,54 +1,123 @@
-{%  extends "layout.html" %}
-
-{%  load static %}
+{% extends "layout.html" %}
+{% load static %}
 
 {% block body %}
-
-
-    {% comment %} slider starts here {% endcomment %}
-
-    {% for slide in slides %}
-
-    <div id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-        <div class="carousel-item active">
-            <div class=""><img src="/media/{{slide.image}}" class="img-fluid" alt=""></div>
-            <div class="carousel-caption d-none d-md-block">
-            <h5>{{slide.title}}</h5>
-            <p>{{slide.description}}</p>
-            </div>
-        </div>
-        </div>
-        </div>
-    </div>
-
-    {% endfor %}
-
-    {% comment %} slider ends here {% endcomment %}
-
 <main class="main">
-    <div class="container">
+    <!-- Hero Section -->
+    <section class="hero bg-primary text-white text-center py-5">
+        <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <p>When my colleague collapsed and started seizing during a meeting,<br>
-                        we had no idea what to do! Luckily, I had heard about ERA so I quickly called. <br>
-                        They came in just a few minutes, revived her and immediately took her to hospital.
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="display-4 mb-4">Emergency Connect Plus (EmCoP)</h1>
+                    <p class="lead mb-4">
+                        Rapid Response. Saving Lives. Every Minute Counts.
                     </p>
+                    <div class="hero-buttons">
+                        <a href="{% url 'contact us' %}" class="btn btn-outline-light btn-lg mx-2">Contact Us</a>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="row">
+    <!-- Quick Emergency Services -->
+    <section class="emergency-services py-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-ambulance text-primary display-4 mb-3"></i>
+                            <h3 class="card-title">Medical Emergency</h3>
+                            <p class="card-text">
+                                Immediate medical assistance for critical situations.
+                            </p>
+                            <a href="tel:+254700000000" class="btn btn-outline-primary">Call Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-shield-plus text-success display-4 mb-3"></i>
+                            <h3 class="card-title">First Aid</h3>
+                            <p class="card-text">
+                                Professional first aid training and immediate support.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-telephone-plus text-danger display-4 mb-3"></i>
+                            <h3 class="card-title">Emergency Hotline</h3>
+                            <p class="card-text">
+                                24/7 emergency response and support services.
+                            </p>
+                            <a href="{% url 'contact us' %}" class="btn btn-outline-danger">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Quick Section -->
+    <section class="about-section bg-light py-5">
+        <div class="container">
+            <div class="row align-items-center">
                 <div class="col-md-6">
-                    <img src="{% static 'assets/images/image_1.png' %}" alt="">
+                    <img src="{% static 'assets/image/' %}" 
+                        class="img-fluid rounded shadow" alt="Emergency Response Team">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="mb-4">About Emergency Connect Plus</h2>
+                    <p>
+                        We are dedicated to providing rapid, professional emergency 
+                        response services across Kenya. Our team of trained professionals 
+                        is committed to saving lives and providing critical support 
+                        when every second counts.
+                    </p>
+                    <a href="{% url 'About us' %}" class="btn btn-primary mt-3">Learn More</a>
                 </div>
             </div>
-    </div>
+        </div>
+    </section>
 
+    <!-- Testimonial Section -->
+    <section class="testimonials py-5">
+        <div class="container text-center">
+            <h2 class="mb-5">What Our Clients Say</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <p class="fst-italic">
+                                "EmCoP saved my colleague's life during a critical medical emergency. 
+                                Their quick response was incredible."
+                            </p>
+                            <div class="mt-3">
+                                <strong>- Jane Mary</strong>
+                                <p class="text-muted">Corporate Client</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more testimonials as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta bg-primary text-white text-center py-5">
+        <div class="container">
+            <h2 class="display-5 mb-4">Ready to Get Help?</h2>
+            <p class="lead mb-4">
+                Our emergency response team is ready 24/7. Don't hesitate in critical moments.
+            </p>
+            <a href="{% url 'contact us' %}" class="btn btn-light btn-lg">Contact Emergency Services</a>
+        </div>
+    </section>
 </main>
-
 {% endblock %}

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% load static %} 
+{% block body %}
+
+<body>
+    <h2>Emergency Alert Form</h2>
+
+    {% if form %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit Alert</button>
+        </form>
+    {% else %}
+        <p>Form not found!</p>
+    {% endif %}
+</body>
+
+{% endblock %}
+
